@@ -1,14 +1,30 @@
 #修改版 
 #author Flash
 
+#!name=懒人听书 - 开屏广告终极屏蔽版
+#!desc=屏蔽腾讯系开屏广告：拦截 getAd 源头 + pgdt 素材 + 统计上报。若仍出现请清缓存/重装后冷启动测试。
+#!date=2026-02-16
+#############################################
+
 [Rewrite]
+# ====== 原插件规则（保留）======
 ^https?:\/\/118\.178\.214\.118\/yyting\/advertclient\/ClientAdvertList\.action reject-img
 ^https?:\/\/dapis\.mting\.info\/yyting\/advertclient\/ClientAdvertList\.action reject-img
-^https?:\/\/.*\/yyting\/advertclient\/ClientAdvertList.action reject
-^https?:\/\/display\.wting\.info\/.*.jpeg reject-200
-^https?:\/\/.*\/.lrts\.tencentmusic\.com\*.gif reject
-^https?:\/\/pgdt\.gtimg\.cn\/141\/20204\/snscosdownload\/SZ\/reserved\/.* reject-200
+^https?:\/\/.*\/yyting\/advertclient\/ClientAdvertList\.action reject
+^https?:\/\/display\.wting\.info\/.*\.jpeg reject-200
+^https?:\/\/.*\/.lrts\.tencentmusic\.com\*.gif reject-200
+
+# ====== 开屏广告核心源头（最关键）======
+^https?:\/\/tmeadcomm\.y\.qq\.com\/maproxy\/getAd(\?.*)?$ reject
+
+# ====== 开屏素材 CDN 兜底（防止换接口仍出图）======
+^https?:\/\/pgdt\.gtimg\.cn\/.* reject-img
+
+# ====== 广告曝光/点击/上报（可选但推荐，日志更干净）======
+^https?:\/\/rpt\.gdt\.qq\.com\/.* reject
+^https?:\/\/hmmonitor\.mting\.info\/upload\/clickAdvert(\?.*)?$ reject
+^https?:\/\/tmeadcomm\.y\.qq\.com\/mareport.* reject
 
 
 [MITM]
-hostname = 118.178.214.118, dapis.mting.info, display.wting.info, lrts.tencentmusic.com, pgdt.gtimg.cn
+hostname = 118.178.214.118, dapis.mting.info, display.wting.info, tmeadcomm.y.qq.com, pgdt.gtimg.cn, rpt.gdt.qq.com, hmmonitor.mting.info, lrts.tencentmusic.com,

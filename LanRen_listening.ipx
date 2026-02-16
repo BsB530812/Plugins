@@ -6,9 +6,8 @@
 ^https?:\/\/dapis\.mting\.info\/yyting\/advertclient\/ClientAdvertList\.action reject-img
 ^https?:\/\/.*\/yyting\/advertclient\/ClientAdvertList.action reject
 ^https?:\/\/display\.wting\.info\/.*.jpeg reject-200
-^https?:\/\/bookpic\.lrts\.tencentmusic\.com\wvfomvd3t73pjrp65jv0k04c2x38reee\.gif reject
+^https?:\/\/bookpic\.lrts\.tencentmusic\.com\*\.gif reject
 
-^https?:/\/\pgdt\.gtimg\.cn\/141\/20204\/snscosdownload\/SZ\/reserved/*
-
+^https?:/\/\pgdt\.gtimg\.cn\/* reject-200
 [MITM]
-hostname = 118.178.214.118, dapis.mting.info, display.wting.info,bookpic.lrts.tencentmusic.com,pgdt.gtimg.cn,
+hostname = 118.178.214.118, dapis.mting.info, display.wting.info,bookpic.lrts.tencentmusic.com,pgdt.gtimg.cn

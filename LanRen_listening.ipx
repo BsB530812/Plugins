@@ -6,8 +6,8 @@
 ^https?:\/\/dapis\.mting\.info\/yyting\/advertclient\/ClientAdvertList\.action reject-img
 ^https?:\/\/.*\/yyting\/advertclient\/ClientAdvertList.action reject
 ^https?:\/\/display\.wting\.info\/.*.jpeg reject-200
-^https?:\/\/bookpic\.lrts\.tencentmusic\.com\*\.gif reject
-^https？:/\/\pgdt.gtimg.cn\/141\/20204\/snscosdownload\/\SZ\/reserved\/* reject
+^https?:\/\/.*\/.lrts\.tencentmusic\.com\*.gif reject
+^https?:\/\/pgdt\.gtimg\.cn\/141\/20204\/snscosdownload\/SZ\/reserved\/.* reject-200
 
 
 [MITM]

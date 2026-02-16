@@ -1,4 +1,4 @@
-# 修改版 
+#修改版 
 #author Flash
 
 [Rewrite]
@@ -7,7 +7,10 @@
 ^https?:\/\/.*\/yyting\/advertclient\/ClientAdvertList.action reject
 ^https?:\/\/display\.wting\.info\/.*.jpeg reject-200
 ^https?:\/\/bookpic\.lrts\.tencentmusic\.com\*\.gif reject
+^https？:/\/\pgdt.gtimg.cn\/141\/20204\/snscosdownload\/\SZ\/reserved\/* reject
 
-^https?:/\/\pgdt\.gtimg\.cn\/* reject-200
+
 [MITM]
-hostname = 118.178.214.118, dapis.mting.info, display.wting.info,bookpic.lrts.tencentmusic.com,pgdt.gtimg.cn
+hostname = 118.178.214.118, dapis.mting.info, 
+display.wting.info,lrts.tencentmusic.com,
+pgdt.gtimg.cn

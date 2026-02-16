@@ -1,0 +1,28 @@
+#!name=懒人听书 LRTS - 开屏广告屏蔽（稳定版）
+#!desc=基于抓包HAR：优先“改返回体”清空开屏广告列表(type=3)，并屏蔽腾讯广告拉取/素材/上报；如仍出现请清缓存/重装后冷启动测试。
+#!author=bsb+ChatGPT
+#!date=2026-02-16
+#############################################
+
+[Script]
+# 1) 懒人听书自家广告列表：只处理 type=3（开屏/启动广告），不影响其它活动位
+http-response ^https?:\/\/shapi\.mting\.info\/advert\/ClientAdvertList\.action\?.*\btype=3\b.* script-path=lrts_splash_filter.js, requires-body=true, timeout=30, tag=LRTS-开屏广告过滤
+
+[Rewrite]
+# 2) 腾讯广告拉取（兜底，防止走 Tencent Music 广告链路）
+^https?:\/\/tmeadcomm\.y\.qq\.com\/maproxy\/getAd(\?.*)?$ reject
+
+# 3) QQ系应用广告落地/分发（兜底）
+^https?:\/\/us\.l\.qq\.com\/exapp(\?.*)?$ reject
+
+# 4) 广告素材 CDN（兜底）
+^https?:\/\/pgdt\.gtimg\.cn\/.* reject-img
+
+# 5) 曝光/点击/上报（可选：更干净；不影响去广告效果）
+^https?:\/\/rpt\.gdt\.qq\.com\/.* reject
+^https?:\/\/signaltower\.gdt\.qq\.com\/.* reject
+^https?:\/\/sdkreport\.e\.qq\.com\/.* reject
+^https?:\/\/otheve\.beacon\.qq\.com\/.* reject
+
+[MITM]
+hostname = shapi.mting.info, tmeadcomm.y.qq.com, us.l.qq.com, pgdt.gtimg.cn, rpt.gdt.qq.com, signaltower.gdt.qq.com, sdkreport.e.qq.com, otheve.beacon.qq.com

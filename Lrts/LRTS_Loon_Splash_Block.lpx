@@ -6,7 +6,7 @@
 
 [Script]
 # 1) 懒人听书自家广告列表：只处理 type=3（开屏/启动广告），不影响其它活动位
-http-response ^https?:\/\/shapi\.mting\.info\/advert\/ClientAdvertList\.action\?.*\btype=3\b.* script-path=https://raw.githubusercontent.com/BsB530812/Plugins/refs/heads/main/lrts_splash_filter.js, requires-body=true, timeout=30, tag=LRTS-开屏广告过滤
+http-response ^https?:\/\/shapi\.mting\.info\/advert\/ClientAdvertList\.action\?.*\btype=3\b.* script-path=https://raw.githubusercontent.com/BsB530812/Plugins/refs/heads/main/Lrts/lrts_splash_filter.js, requires-body=true, timeout=30, tag=LRTS-开屏广告过滤
 
 [Rewrite]
 # 2) 腾讯广告拉取（兜底，防止走 Tencent Music 广告链路）

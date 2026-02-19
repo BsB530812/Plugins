@@ -7,10 +7,10 @@
 
 [Script]
 # 把下面 script-path 换成你自己托管的 Douban_NoSplash.js 的 raw 链接（GitHub / Gitee / 自建服务器皆可）
-http-response ^https?:\/\/api\.douban\.com\/v2\/app_ads\/splash_(preload|show|bid|statistics) script-path= https://raw.githubusercontent.com/BsB530812/Plugins/refs/heads/main/Douban/Douban_NoSplash.js requires-body=true timeout=10 tag=Douban_Splash_Killer
+http-response ^https?:\/\/api\.douban\.com\/v2\/app_ads\/splash_(preload|show|bid|statistics) script-path=https://raw.githubusercontent.com/BsB530812/Plugins/refs/heads/main/Douban/Douban_NoSplash.js, requires-body=true timeout=10 tag=Douban_Splash_Killer
 
 # 可选：如果你想顺便清掉首页 banner（可能存在副作用），取消下一行注释并加入 MITM 的 frodo.douban.com
-http-response ^https?:\/\/frodo\.douban\.com\/api\/v2\/home_banner script-path= https://raw.githubusercontent.com/BsB530812/Plugins/refs/heads/main/Douban/Douban_NoSplash.js requires-body=true timeout=10 tag=Douban_Home_Banner_Clean
+http-response ^https?:\/\/frodo\.douban\.com\/api\/v2\/home_banner script-path=https://raw.githubusercontent.com/BsB530812/Plugins/refs/heads/main/Douban/Douban_NoSplash.js, requires-body=true timeout=10 tag=Douban_Home_Banner_Clean
 
 [MITM]
 hostname = api.douban.com, frodo.douban.com

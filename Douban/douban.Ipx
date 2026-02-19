@@ -8,7 +8,7 @@
 http-response ^https:\/\/api\.douban\.com\/v2\/app_ads\/splash_(preload|bid|statistics) script-path=https://github.com/BsB530812/Plugins/blob/main/Douban/Douban_SplashBlock.js, requires-body=true, timeout=10, tag=Douban_SplashBlock
 
 # 可选：如果你想更“狠”一点，也可以把开屏统计上报直接拦掉（不需要 MITM）
-# URL-REGEX,^https:\/\/api\.douban\.com\/v2\/app_ads\/splash_statistics,REJECT
+URL-REGEX,^https:\/\/api\.douban\.com\/v2\/app_ads\/splash_statistics,REJECT
 
 [MITM]
 hostname = api.douban.com
